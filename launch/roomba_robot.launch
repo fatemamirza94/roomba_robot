@@ -1,0 +1,17 @@
+<launch>
+  
+  <!-- Setting Global parameters -->
+  <param name="/robot_name" type="string" value="roomba_robot" />
+  <param name="/robot_max_speed" type="double" value="0.5" />
+  <param name="/initial_post_x" type="double" value="0" />
+  <param name="/initial_post_y" type="double" value="0" />
+  <param name="/max_cordinate" type="double" value="100" />
+  <param name="/min_cordinate" type="double" value="-100" />
+
+  <!-- Initializing nodes in the right order, otherwise there will be errors-->
+  <node name="dirt_pub_node" pkg="roomba_robot" type="dirt_pub_node.py"/>
+  <node name="speed_pub_node" pkg="roomba_robot" type="speed_pub_node.py"/>
+  <node name="position_pub_node" pkg="roomba_robot" type="position_pub_node.py"/>
+  <node name="walk_to_point_action_server_node" pkg="roomba_robot" type="walk_to_point_action_server.py"/>
+
+</launch>
